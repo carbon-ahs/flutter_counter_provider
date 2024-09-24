@@ -7,6 +7,7 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userNameController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         title: Text("Settings"),
@@ -29,7 +30,8 @@ class SettingsPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 8),
-                const TextField(
+                TextField(
+                  controller: userNameController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'Enter new username',
@@ -37,10 +39,13 @@ class SettingsPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 ElevatedButton(
-                  onPressed: () {},
-                  // style: ElevatedButton.styleFrom(
-                  //   backgroundColor: Colors.purple,
-                  // ),
+                  onPressed: () {
+                    context
+                        .read<UserProvider>()
+                        .changeUserName(newUserName: userNameController.text);
+                    FocusManager.instance.primaryFocus?.unfocus();
+                    userNameController.clear();
+                  },
                   child: const Text(
                     'SAVE',
                     style: TextStyle(

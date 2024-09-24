@@ -1,3 +1,4 @@
+import 'package:counter_provider/pages/counter_page.dart';
 import 'package:counter_provider/pages/home_page.dart';
 import 'package:counter_provider/pages/settings_page.dart';
 import 'package:flutter/material.dart';
@@ -10,14 +11,15 @@ class Skeleton extends StatefulWidget {
 }
 
 class _SkeletonState extends State<Skeleton> {
-  int _currentIndex = 0;
-  List<Widget> body = const [
-    Icon(Icons.home),
-    Icon(Icons.settings),
-    // Icon(Icons.add),
-  ];
+  int _currentIndex = 1;
+  // List<Widget> body = const [
+  //   Icon(Icons.home),
+  //   Icon(Icons.settings),
+  //   Icon(Icons.add),
+  // ];
 
   final screens = [
+    CounterPage(),
     HomePage(),
     SettingsPage(),
   ];
@@ -37,6 +39,10 @@ class _SkeletonState extends State<Skeleton> {
           });
         },
         items: const [
+          BottomNavigationBarItem(
+            label: 'Counter',
+            icon: Icon(Icons.add),
+          ),
           BottomNavigationBarItem(
             label: 'Home',
             icon: Icon(Icons.home),
