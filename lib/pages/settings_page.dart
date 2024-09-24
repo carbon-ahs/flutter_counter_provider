@@ -14,8 +14,16 @@ class SettingsPage extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Username: ${context.watch<UserProvider>().userName}'),
+            Text(
+              'Username: ${context.watch<UserProvider>().userName}',
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+            ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,7 +38,17 @@ class SettingsPage extends StatelessWidget {
                 const SizedBox(height: 8),
                 ElevatedButton(
                   onPressed: () {},
-                  child: const Text('SAVE'),
+                  // style: ElevatedButton.styleFrom(
+                  //   backgroundColor: Colors.purple,
+                  // ),
+                  child: const Text(
+                    'SAVE',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 8),
               ],
