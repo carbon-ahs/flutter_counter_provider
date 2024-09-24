@@ -1,4 +1,6 @@
+import 'package:counter_provider/providers/counter_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CounterPage extends StatelessWidget {
   const CounterPage({super.key});
@@ -7,14 +9,14 @@ class CounterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Counter'),
+        title: const Text('Challenge'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            '0',
+            context.watch<CounterProvider>().counter.toString(),
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
@@ -26,11 +28,15 @@ class CounterPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               FloatingActionButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read<CounterProvider>().incrementCounter();
+                },
                 child: const Icon(Icons.add),
               ),
               FloatingActionButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read<CounterProvider>().decrementCounter();
+                },
                 child: const Icon(Icons.remove),
               ),
             ],

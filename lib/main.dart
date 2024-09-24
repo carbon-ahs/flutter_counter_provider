@@ -1,3 +1,4 @@
+import 'package:counter_provider/providers/counter_provider.dart';
 import 'package:counter_provider/providers/user_provider.dart';
 import 'package:counter_provider/skeleton.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => UserProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CounterProvider(),
         ),
       ],
       child: MaterialApp(
