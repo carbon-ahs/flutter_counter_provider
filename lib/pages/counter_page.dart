@@ -16,7 +16,7 @@ class CounterPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            context.watch<CounterProvider>().counter.toString(),
+            context.watch<CounterProvider>().value.toString(),
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
